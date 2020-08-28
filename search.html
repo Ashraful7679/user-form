@@ -1,0 +1,38 @@
+<h4>Search</h4>
+
+<div class="form-group">
+  <input type="text" class="form-control" id="searchInput" placeholder="search...">
+</div>
+  
+  <table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="searchResults">
+    
+  </tbody>
+</table>
+
+
+<template id="rowTemplate">
+    <tr class="result-box">
+      <th class="custID" scope="row"></th>
+      <td class="firstName"></td>
+      <td class="lastName"></td>
+      <td class="text-center"><button type="button" class="btn btn-outline-dark edit-button btn-sm" >Edit</button></td>
+      <td class="text-center">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-danger delete-button d-none btn-sm">Confirm</button>
+          <button type="button" class="btn btn-outline-dark before-delete-button btn-sm" data-button-state="delete">Delete</button>
+        </div>
+      </td>
+      
+    </tr>
+    
+</template>
