@@ -8,24 +8,24 @@ function loadMainForm() {
   
 }
 
-function createMenu_() {
-  
+function createMenu_() {  
   const ui = SpreadsheetApp.getUi();
   const menu = ui.createMenu("Custom Menu");
   menu.addItem("Open Form", "loadMainForm");
-  menu.addToUi();
-  
+  menu.addToUi();  
 }
 
 
 function onOpen(){
- createMenu_();
-  
+ createMenu_();  
 }
 
+var SHEET = SpreadsheetApp.getActiveSheet();
 
+function initialValue(){  
+  return SHEET.getRange(1, 5).getValue();  
+}
 
-
-//Section for show a spacific value in the user form
-
-
+function getNewValue(){
+   return SHEET.getRange(1, 5).getValue(); 
+}
