@@ -12,15 +12,6 @@ function getDataForSearch() {
   return ws.getRange(2, 1, ws.getLastRow()-1, 3).getValues();
 }
 
-
-
-
-
-
-
-
-
-
 function deleteById(id){
   
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -43,25 +34,6 @@ function getCustomerById(id){
   return { custId : customerInfo[0], firstName : customerInfo[1], lastName : customerInfo[2], phone : customerInfo[3] }
 
 }
-
-function getNewValue(){
-
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const ws = ss.getSheetByName("Customers");
-  const newValue= ws.getRange(1, 5).getValues();
-  
-   return(newValue);
-
-}
-
-
-
-
-
-
-
-
-
 
 function editCustomerById(id, customerInfo){
 
