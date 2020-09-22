@@ -38,12 +38,10 @@
           <li class="nav-item">
             <div class="nav-link" id="add-customer-link">Add Customer</div>
           </li>
-         <div class="nav-item input-field col s6">
-              <button class="btn btn-primary btn-lg btn-block align-middle" id="btn">Update</button>         
-          </div>
-           <div class="input-group input-group-sm mb-3 input-field col s6" role="alert">   
-                 <input id="input0" value="<?=initialValue?>" type="text" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" class="input-group-text validate"> 
-            </div>  
+         
+         <div class="input-group input-group-sm mb-6 input-field col s6">   
+            <input id="input0"  class="btn">
+         </div>  
        </ul>
          
     </nav>
@@ -76,45 +74,47 @@
   
   <script>
   
- 
-
-    
-      var initVal = document.getElementById(input0).value;
+var initVal = <?=initialValue?>;
+     
+      document.getElementById("input0").value = initVal;
+       document.getElementById("app").addEventListener("input",money);
+        document.getElementById("app").addEventListener("click",money);  
+         document.getElementById("navigation").addEventListener("click",money);  
        if(initVal <= 0){
-     document.getElementById("input0").classList.add("text-danger");
+      document.getElementById("input0").classList.add("btn-danger");
         }
         else{
-        document.getElementById("input0").classList.add("text-success");
+        document.getElementById("input0").classList.add("btn-success");
        
    }
-        document.getElementById("input0").value = initVal;
-         document.getElementById("btn").addEventListener("click",function(){
-         google.script.run.withSuccessHandler(showValue).getNewValue();
-         
-        
-         
-        });
+           
+      function money(){
      
+         google.script.run.withSuccessHandler(showValue).getNewValue();
+     
+         };
+  
+       
          
    function showValue(myValue){
-         document.getElementById("input0").value = myValue;
-  //          
-  //      if(myValue === "-6"){
-  //          document.getElementById("input0").classList.add("text-danger")};
-  //       else{
-  //          document.getElementById("input0").classList.remove("text-success")};
-  //      
-    
        
+        document.getElementById("input0").value = initVal;
+        document.getElementById("app").addEventListener("input",money);
+        document.getElementById("app").addEventListener("click",money);  
+        document.getElementById("navigation").addEventListener("click",money); 
+       
+       if(myValue <= 0){
+     document.getElementById("input0").classList.add("btn-danger");
+     document.getElementById("add-customer-button").disabled=true;
+     editButton
+        }
+        else{
+        document.getElementById("input0").classList.add("btn-success");
+     document.getElementById("add-customer-button").disabled=false;
+   }  
+         document.getElementById("input0").value = myValue;
 };
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   
   var data;
